@@ -33,7 +33,6 @@
     "id": 4,
     "name": "Next.js",
     "logo": "https://cdn.simpleicons.org/nextdotjs/000000",
-    "badge": "Powerful",
     "description": "The React framework for full-stack web applications with hybrid static and server rendering.",
     "category": "Frontend",
     "level": "Intermediate",
