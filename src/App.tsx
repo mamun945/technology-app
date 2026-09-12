@@ -5,6 +5,7 @@ import Hero from './components/Hero'
 import Nav from './components/Nav'
 import TechSection from './components/TechSection/TechSection'
 import type { ITech } from './Type'
+import { ToastContainer } from 'react-toastify'
 
 const technologyPromise = async():Promise<ITech[]>=>{
    const res = await fetch('./data.json')
@@ -16,6 +17,7 @@ function App() {
   const technologes = technologyPromise();
   return (
     <>
+    <ToastContainer />
     <Nav></Nav>
     <Hero></Hero>
     <Suspense fallback={<h1>Loading.....</h1>}>

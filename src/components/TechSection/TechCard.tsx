@@ -1,13 +1,32 @@
+import { useState, type Dispatch, type SetStateAction } from "react";
 import type { ITech } from "../../Type";
+import { FaCheck } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 interface TechCard{
     tech:ITech
+    selectedCard:ITech[]
+    setSelectedCard: Dispatch<SetStateAction<ITech[]>>
 }
 
-const TechCard = ({tech}:TechCard) => {
-   
+const TechCard = ({tech, selectedCard, setSelectedCard}:TechCard) => {
+  const [selected, setSelected] = useState(false)
+
+  const handaleSelected =(name:string)=>{
+
+    if(selectedCard.includes(tech)){
+      toast.error(`${tech.name} has already added`);
+      return;
+     }
+     setSelected(true)
+     toast.success(`${name} is added successfully!`)
+     
+    setSelectedCard([...selectedCard, tech]);
+  }
+
+
     return (
-       <div className="group flex h-full flex-col rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+       <div className={`group flex h-full flex-col rounded-2xl border border-gray-200 p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${selected ? 'border-pink-400 bg-pink-200':''}`}>
   
   {/* Top Section */}
   <div className="flex items-start justify-between">
@@ -66,8 +85,17 @@ const TechCard = ({tech}:TechCard) => {
   </div>
 
   {/* Button */}
-  <button className="btn btn-neutral mt-4 w-full rounded-lg transition-all duration-300 group-hover:bg-blue-600">
-    Add to Stack
+  <button
+   onClick={()=>handaleSelected(tech.name)}
+   disabled={selected}
+   className={`btn mt-4 w-full rounded-lg transition-all duration-300 group-hover:bg-blue-600 ${selected ? 'bg-pink-500 text-white':'btn-neutral'}`}>
+    {selected ? (
+    <>
+      <FaCheck/> Added to Stack
+    </>
+  ) : (
+    "Add to Stack"
+  )}
   </button>
 
 </div>
