@@ -2,8 +2,7 @@ import { FaBars } from 'react-icons/fa';
 import logo from '../assets/logo-text.png'
 const Nav = () => {
     return (
-        <div className='flex justify-center p-4'>
-            <nav className='container mx-auto flex items-center justify-between my-5 shadow-xl border-1 py-5 px-2 sticky top-0 left-0 z-4 bg-orange-200 rounded-xl'>
+            <nav className='container mx-auto flex items-center justify-between my-5 shadow-xl border-1 py-5 px-3 mx-5 sticky top-0 left-0 z-4 bg-orange-200 rounded-xl'>
             <div className='md:hidden '>
                 <FaBars />
             </div>
@@ -20,7 +19,6 @@ const Nav = () => {
                 <button className='btn btn-secondary rounded-[50px]'>SignUp</button>
             </div>
         </nav>
-        </div>
     );
 };
 

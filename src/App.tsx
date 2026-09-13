@@ -6,6 +6,7 @@ import Nav from './components/Nav'
 import TechSection from './components/TechSection/TechSection'
 import type { ITech } from './Type'
 import { ToastContainer } from 'react-toastify'
+import Footer from './components/Footer'
 
 const technologyPromise = async():Promise<ITech[]>=>{
    const res = await fetch('./data.json')
@@ -23,6 +24,7 @@ function App() {
     <Suspense fallback={<h1>Loading.....</h1>}>
        <TechSection technologes={technologes}></TechSection>
     </Suspense>
+    <Footer></Footer>
     </>
   )
 }
