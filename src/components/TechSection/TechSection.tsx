@@ -95,19 +95,14 @@ const TechSection = ({ technologes }: ITechsection) => {
               </div>
             ) : (
               /* Empty State */
-              <div className="flex min-h-[250px] flex-col items-center justify-center px-4 text-center">
-                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-gray-100 sm:h-16 sm:w-16">
-                  <span className="text-xl sm:text-2xl">📚</span>
+              <div className="min-h-[250px] px-4 space-y-3">
+                <div>
+                  <h1 className="text-xl font-bold">Your Stack</h1>
+                  <p className="text-gray-500">No technologies selected yet.</p>
                 </div>
-
-                <h1 className="text-lg font-bold text-gray-900 sm:text-xl">
-                  Your Stack is Empty
-                </h1>
-
-                <p className="mt-2 max-w-xs text-xs leading-6 text-gray-500 sm:text-sm">
-                  No technologies selected yet. Start building your stack by
-                  selecting the technologies you want to learn.
-                </p>
+                <div className="dotted rounded-xl py-10 px-8">
+                  <p className="text-gray-400 text-center">Your stack is empty.</p>
+                </div>
               </div>
             )}
           </div>
